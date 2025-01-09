@@ -1,5 +1,6 @@
 """
-Unit tests for the hyp function from the hypot module, covering all input checks.
+Unit tests for the `hyp` function from the `hypot` module.
+It covers all input checks.
 """
 
 import math
@@ -60,7 +61,7 @@ class TestGoodHypot(unittest.TestCase):
     def test_type_error(self):
         """
         Example test that passing non-numeric values raises TypeError.
-        Kept separate in case you prefer distinct grouping.
+        Separated for clarity.
         """
         with self.assertRaises(TypeError):
             hyp("three", "four")
