@@ -7,7 +7,7 @@ import math
 
 def hyp(x, y):
     """
-    Calculate the hypotenuse of a right triangle using the built-in math.hypot function.
+    Calculate the hypotenuse of a right triangle using the built-in math.hypot.
 
     :param x: The length of one side
     :param y: The length of the other side
