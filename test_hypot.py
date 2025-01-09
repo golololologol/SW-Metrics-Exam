@@ -1,7 +1,8 @@
 """
-Unit tests for the hyp function from the hypot module.
+Unit tests for the hyp function from the hypot module, covering all input checks.
 """
 
+import math
 import unittest
 
 from hypot import hyp
@@ -9,7 +10,7 @@ from hypot import hyp
 
 class TestGoodHypot(unittest.TestCase):
     """
-    Upgraded test suite for the 'hyp' function from 'hypot.py'.
+    Thorough test suite for the 'hyp' function from 'hypot.py'.
     """
 
     def test_positive_values(self):
@@ -28,8 +29,39 @@ class TestGoodHypot(unittest.TestCase):
         """Test floating-point inputs with approximate comparison."""
         self.assertAlmostEqual(hyp(3.5, 4.5), 5.70087712549569)
 
+    def test_none_input(self):
+        """Test that None input raises ValueError."""
+        with self.assertRaises(ValueError):
+            hyp(None, 4)
+        with self.assertRaises(ValueError):
+            hyp(3, None)
+
+    def test_nan_input(self):
+        """Test that NaN input raises ValueError."""
+        with self.assertRaises(ValueError):
+            hyp(math.nan, 4)
+        with self.assertRaises(ValueError):
+            hyp(3, math.nan)
+
+    def test_infinite_input(self):
+        """Test that infinite values raise ValueError."""
+        with self.assertRaises(ValueError):
+            hyp(math.inf, 4)
+        with self.assertRaises(ValueError):
+            hyp(3, -math.inf)
+
+    def test_non_numeric_input(self):
+        """Test that non-numeric values raise TypeError."""
+        with self.assertRaises(TypeError):
+            hyp("three", 4)
+        with self.assertRaises(TypeError):
+            hyp(3, [4])
+
     def test_type_error(self):
-        """Test that passing non-numeric values raises TypeError."""
+        """
+        Example test that passing non-numeric values raises TypeError.
+        Kept separate from test_non_numeric_input if you want to group them differently.
+        """
         with self.assertRaises(TypeError):
             hyp("three", "four")
 
