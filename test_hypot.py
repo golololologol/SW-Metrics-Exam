@@ -1,7 +1,13 @@
+"""
+Unit tests for the hyp function from the hypot module.
+"""
+
 import unittest
+
 from hypot import hyp
 
-class TestHypot(unittest.TestCase):
+
+class TestGoodHypot(unittest.TestCase):
     """
     Upgraded test suite for the 'hyp' function from 'hypot.py'.
     """
@@ -26,6 +32,7 @@ class TestHypot(unittest.TestCase):
         """Test that passing non-numeric values raises TypeError."""
         with self.assertRaises(TypeError):
             hyp("three", "four")
+
 
 if __name__ == '__main__':  # pragma: no cover
     unittest.main()          # pragma: no cover
