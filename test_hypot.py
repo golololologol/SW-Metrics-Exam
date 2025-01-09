@@ -60,7 +60,7 @@ class TestGoodHypot(unittest.TestCase):
     def test_type_error(self):
         """
         Example test that passing non-numeric values raises TypeError.
-        Kept separate from test_non_numeric_input if you want to group them differently.
+        Kept separate in case you prefer distinct grouping.
         """
         with self.assertRaises(TypeError):
             hyp("three", "four")
